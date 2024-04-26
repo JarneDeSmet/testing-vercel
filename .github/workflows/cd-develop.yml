@@ -33,7 +33,7 @@ jobs:
         # This step deploys the project build to Vercel.
       - name: Deploy project artifacts to Vercel
         id: deploy
-        run: echo "::set-output name=url::$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})"
+        run: echo "{url}={$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})}" >> $GITHUB_OUTPUT
 
       - name: Alias last deployment
-        run: vercel alias set ${{ steps.deploy.outputs.url }} testing-vercel-jarnes-projects-276e175d --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel alias set ${{ url }} testing-vercel-jarnes-projects-276e175d --token=${{ secrets.VERCEL_TOKEN }}
