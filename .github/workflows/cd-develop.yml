@@ -36,4 +36,4 @@ jobs:
         run: echo "{url}={$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})}" >> $GITHUB_OUTPUT
 
       - name: Alias last deployment
-        run: vercel alias set ${{ url }} testing-vercel-jarnes-projects-276e175d --token=${{ secrets.VERCEL_TOKEN }}
+        run: vercel alias set ${{ $url }} testing-vercel-jarnes-projects-276e175d --token=${{ secrets.VERCEL_TOKEN }}
